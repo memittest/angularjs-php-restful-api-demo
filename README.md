@@ -1,22 +1,22 @@
-## Company management using AngularJS, MySQL and PHP RESTful API
+### Company management using AngularJS, MySQL and PHP RESTful API
 This is company management application build with AngularJS, MySql and RESTful API.
-###How to use
+####How to use
 - Download project files and move on server
 - Creates Database and import required schema (companies.sql).
 - Database configuration: api/v1/config.php
 
 Note: In this project I ignored the security part of the web application.
 
-###Modules used
+####Modules used
 - PHP Slim (to create our data provider / RESTful API)
 - AngularJS Bootstrap UI modal  (JavaScript client)
 
-###Requirement Specification
+####Requirement Specification
 - Add/Edit/Delete new company to inventory
 - Activate/De-activate
 - Filter list of companies at client side
 
-###RESTful API Details:
+####RESTful API Details:
 <ul>
 	<li><b>Get Company List</b>
 		<dl>

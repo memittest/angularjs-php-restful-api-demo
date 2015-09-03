@@ -1,0 +1,54 @@
+    <button type="button" class="close" ng-click="cancel();">
+        <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
+    </button>
+    <div class="modal-header">
+        <h3 class="modal-title">{{title}} [ID: {{company.CompanyID}}]</h3>
+    </div>
+	
+    <div class="modal-body">
+        <form name="company_form" class="form-horizontal" role="form" novalidate>
+			<input type="hidden" class="form-control" name="CompanyID" placeholder="CompanyID" ng-model="company.CompanyID" />
+            <form-element label="Name" mod="company">
+                <input type="text" class="form-control" name="Name" placeholder="NAME" ng-model="company.Name" required />
+				<small style="color:red" ng-show="company_form.Name.$dirty && company_form.Name.$invalid"> Please enter name.</small>
+            </form-element>            
+			<form-element label="Address" mod="company">
+                <input type="text" class="form-control" name="Address" placeholder="Address" ng-model="company.Address" required />
+				<small style="color:red" ng-show="company_form.Address.$dirty && company_form.Address.$invalid"> Please enter address.</small>
+            </form-element>			
+			<form-element label="City" mod="company">
+                <input type="text" class="form-control" name="City" placeholder="City" ng-model="company.City" required />
+				<small style="color:red" ng-show="company_form.City.$dirty && company_form.City.$invalid"> Please enter city.</small>
+            </form-element>	
+			<form-element label="Country" mod="company">
+                <input type="text" class="form-control" name="Country" placeholder="Country" ng-model="company.Country" required />
+				<small style="color:red" ng-show="company_form.Country.$dirty && company_form.Country.$invalid"> Please enter country.</small>
+            </form-element>	
+			<form-element label="Email" mod="company">
+                <input type="email" class="form-control" name="Email" placeholder="Email" ng-model="company.Email" email />
+				<small style="color:red" ng-show="company_form.Email.$dirty && company_form.Email.$invalid"> Please enter valid email id.</small>
+            </form-element>	
+			<form-element label="Phone" mod="company">
+                <input type="text" class="form-control" name="Phone" placeholder="Phone" ng-model="company.Phone" />
+            </form-element>
+			<form-element label="Directors" mod="company">
+				<input type="text" class="form-control" ngTrim="true" ng-model="company.dir_name" placeholder="Enter name"><button ng-click="addItem()">Add Me</button>
+				<ol>					
+					<li ng-repeat="item in company.dist track by $index">
+						{{item}}<a ng-click="deleteItem($index)">&nbsp;&nbsp;<i style="color:red;" class="ace-icon fa fa-remove"></i></a>
+					</li>
+				</ol>
+			</form-element>			
+            <div class="space"></div>
+            <div class="space-4"></div>
+            <div class="modal-footer">
+                <form-element label="">
+                    <div class="text-right">
+                        <a class="btn btn-sm" ng-click="cancel()"><i class="ace-icon fa fa-reply"></i>Cancel</a>
+                        <button ng-click="saveCompany(company);" ng-disabled="company_form.$invalid || enableUpdate" class="btn btn-sm btn-primary" type="submit"><i class="ace-icon fa fa-check"></i>{{buttonText}}</button>
+                    </div>
+                </form-element>
+            </div>
+        </form>
+    </div>
+
